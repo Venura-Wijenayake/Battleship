@@ -34,8 +34,8 @@ function createBoard(color, user) {
 	gamesBoardContainer.append(gameBoardContainer);
 }
 
-createBoard('yellow', 'player');
-createBoard('pink', 'computer');
+createBoard('lightblue', 'player');
+createBoard('#FFBEB0', 'computer');
 
 //Creating Ships
 class Ship {
@@ -282,6 +282,7 @@ function checkScore(user, userHits, userSunkShips) {
 
 	console.log('playerHits', playerHits);
 	console.log('playerSunkShips', playerSunkShips);
+
 
 	if (playerSunkShips.length === 5) {
 		infoDisplay.textContent = 'you sunk all the computers ships. You WIN!';
