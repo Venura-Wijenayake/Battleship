@@ -1,3 +1,4 @@
+/*----- constants -----*/
 const gamesBoardContainer = document.querySelector('#gamesboard-container');
 const optionContainer = document.querySelector('.option-container');
 const flipButton = document.querySelector('#flip-button');
@@ -204,7 +205,7 @@ function handleClick(e) {
 		playerTurn = false;
 		const allBoardBlocks = document.querySelectorAll('#computer div');
 		allBoardBlocks.forEach(block => block.replaceWith(block.cloneNode(true)));
-		setTimeout(computerGo, 3000);
+		setTimeout(computerGo, 2000);
 	}
 }
 
@@ -243,7 +244,7 @@ function computerGo() {
 				infoDisplay.textContent = 'Nothing hit this time.';
 				allBoardBlocks[randomGo].classList.add('empty')
 			}
-		}, 3000)
+		}, 2000)
 
 		setTimeout(() => {
 			playerTurn = true;
@@ -251,7 +252,7 @@ function computerGo() {
 			infoDisplay.textContent = 'Please take your go.';
 			const allBoardBlocks = document.querySelectorAll('#computer div');
 			allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
-		}, 6000)
+		}, 3000)
 	}
 }
 
