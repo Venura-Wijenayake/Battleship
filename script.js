@@ -136,12 +136,26 @@ function dragOver(e) {
 }
 
 function dropShip(e) {
-	const startId = e.target.id;
-	const ship = ships[draggedShip.id];
-	addShipPiece('player', ship, startId);
-	if (!notDropped) {
-		draggedShip.remove();
+	if (!gameOver && optionContainer.children.length > 0) {
+		const startId = e.target.id;
+		const ship = ships[draggedShip.id];
+		addShipPiece('player', ship, startId);
+		if (!notDropped) {
+			draggedShip.remove();
+		}
+		if (optionContainer.children.length === 0) {
+			disablePlayerBoard();
+		}
 	}
+}
+
+// Disable player board
+function disablePlayerBoard() {
+	allPlayerBlocks.forEach(playerBlock => {
+		playerBlock.removeEventListener('dragover', dragOver);
+		playerBlock.removeEventListener('drop', dropShip);
+		playerBlock.style.pointerEvents = 'none';
+	});
 }
 
 //Add highlight
@@ -171,7 +185,7 @@ function startGame() {
 			const allBoardBlocks = document.querySelectorAll('#computer div');
 			allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
 			playerTurn = true;
-			turnDisplay.textContent = 'Your Go!';
+			turnDisplay.textContent = 'Player';
 			infoDisplay.textContent = "The Game has started!"
 		}
 
@@ -214,7 +228,7 @@ function handleClick(e) {
 function computerGo() {
 
 	if (!gameOver) {
-		turnDisplay.textContent = 'Computer Go!';
+		turnDisplay.textContent = 'Computer';
 		infoDisplay.textContent = 'The computer is thinking...';
 
 		setTimeout(() => {
@@ -248,8 +262,8 @@ function computerGo() {
 
 		setTimeout(() => {
 			playerTurn = true;
-			turnDisplay.textContent = 'Your Go!';
-			infoDisplay.textContent = 'Please take your go.';
+			turnDisplay.textContent = 'Player';
+			infoDisplay.textContent = "It's your turn.";
 			const allBoardBlocks = document.querySelectorAll('#computer div');
 			allBoardBlocks.forEach(block => block.addEventListener('click', handleClick));
 		}, 3000)
