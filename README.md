@@ -6,7 +6,7 @@ The Battleship Game is a classic strategy game where players aim to sink each ot
 //Background
 The origins of the game can be traced back to the pencil-and-paper game "Salvo," which was played by soldiers during World War I. 
 
-![game preview](https://tinyurl.com/593e4f7z)
+![game preview](https://tinyurl.com/yusmfy32)
 
 Made with: HTML/CSS/Javascript
 
