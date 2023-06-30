@@ -1,6 +1,7 @@
 # Battleship
 
 //Description
+
 The Battleship Game is a classic strategy game where players aim to sink each other's fleet of ships on a grid-based battlefield. It is a turn-based game that requires skill, logic, and a bit of luck to outsmart your opponent and emerge victorious.
 
 //Background
